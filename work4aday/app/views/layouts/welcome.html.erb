@@ -1,3 +1,20 @@
+<% if flash[:message]%>
+<div class="flash-message">
+  <%=flash[:message] %>
+  <%end%>
+</div>
+
+    <h4>WORK4ADAY</h4>
+    <form  action="<%= session_path %>" autocomplete="on" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+
+      <label for="username" class="form-label"><h5>EMAIL</h5> </label>
+      <input id="username" name="user[email]" required="required" type="email" placeholder="mymail@mail.com"/>
+
+      <label for="password" class="form-label"> <h5>PASSWORD </h5></label>
+      <input id="password" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO" />
+      <input class='welbutton' type="submit" value="LOG IN" />
+    </form>
 
     <label id="signupbutton"><h5>NEW USER</h5></label>
 
