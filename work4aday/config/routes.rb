@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :postings
   resources :users
   root 'application#welcome'
+  get '/session' => 'session#index'
   post '/users' => 'users#create'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'

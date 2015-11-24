@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:message] ="Success"
+      flash[:message] ="Thanks for signing up. Please sign in."
     else
       flash[:message]=@user.errors.full_messages.to_sentence
     end

@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   def welcome
     render '/layouts/welcome'
   end
+
+  def index
+    render '/layouts/index'
+  end
+
 end

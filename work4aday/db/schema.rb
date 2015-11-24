@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124042539) do
+ActiveRecord::Schema.define(version: 20151124062021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "postings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "location"
+    t.text     "lattitude"
+    t.text     "longitude"
+    t.text     "title"
+    t.text     "description"
+    t.date     "date"
+    t.time     "time"
+    t.decimal  "length_of_job"
+    t.decimal  "rate_of_pay"
+    t.integer  "expires"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "postings", ["location"], name: "index_postings_on_location", using: :btree
+  add_index "postings", ["user_id"], name: "index_postings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      null: false
@@ -28,4 +47,5 @@ ActiveRecord::Schema.define(version: 20151124042539) do
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
+  add_foreign_key "postings", "users"
 end
