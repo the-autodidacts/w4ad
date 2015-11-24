@@ -1,0 +1,22 @@
+
+    <label id="signupbutton"><h5>NEW USER</h5></label>
+
+    <div id="signup-form" class="hidden">
+      <form  action="<%= users_path %>" autocomplete="on" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+        <br>
+        <hr>
+        <label for="usernamesignup" class="form-label"><h5>FIRST NAME</h5></label>
+        <input id="usernamesignup" name="user[first_name]" required="required" type="text" placeholder="John" />
+        <label for="usernamesignup" class="form-label"><h5>LAST NAME</h5></label>
+        <input id="usernamesignup" name="user[last_name]" required="required" type="text" placeholder="Smith" />
+
+        <label for="emailsignup" class="form-label"> <h5>EMAIL</h5></label>
+        <input id="emailsignup" name="user[email]" required="required" type="email" placeholder="mysupermail@mail.com"/>
+
+        <label for="passwordsignup" class="form-label"><h5>PASSWORD</h5> </label>
+        <input id="passwordsignup" name="user[password]" required="required" type="password" placeholder="eg. X8df!90EO"/>
+
+        <input id="signupbutton" class='welbutton' type="submit" value="Sign up"/>
+      </form>
+    </div>
