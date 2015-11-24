@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :postings
   resources :users
   root 'application#welcome'
   post '/users' => 'users#create'
