@@ -6,7 +6,7 @@ class SessionController < ApplicationController
       session[:current_user_id] = user.id
       flash[:message] = "Thanks for logging in " + user.first_name.capitalize +
       " "+user.last_name.capitalize[0]+ "."
-      redirect_to session_path #in root path for now
+      redirect_to static_index_path
     else
       flash[:message] = "Username or Password combo are not correct"
       redirect_to root_path

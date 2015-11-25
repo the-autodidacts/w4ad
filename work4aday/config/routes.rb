@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   resources :jobpostings
   resources :users
   root 'application#welcome'
+  get '/static/index' => 'static#index'
   get '/session' => 'session#index'
   post '/users' => 'users#create'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -2,11 +2,21 @@ class JobpostingsController < ApplicationController
   def create
     if session[:current_user_id]
       current_user  = User.find(session[:current_user_id])
-      job_posting   = current_user.jobpostings.new(jobposting_params)
-      fail
+      jobposting   = current_user.jobpostings.new(jobposting_params)
+
+      if jobposting.save
+        render json: jobposting
+      else
+        render json: {
+          error: true,
+          message: jobposting.errors.full_messages.to_sentence
+        }
+      end
     else
       redirect_to root_path
+    end
   end
+
 
   def destroy
 

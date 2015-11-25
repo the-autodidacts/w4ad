@@ -4,7 +4,7 @@ class StaticController < ApplicationController
   end
 
   def index
-    render '/static/index'
+    redirect_to root_path unless session[:current_user_id]
   end
 
 end
