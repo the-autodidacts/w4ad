@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  latitude: MyString
+  longitude: MyString
+  title: MyString
+  description: MyString
+  start_date: MyString
+  start_time: MyString
+  length: MyString
+  rate_of_pay: MyString
+  expires: MyString
+  user_id: 
+
+two:
+  location: MyString
+  latitude: MyString
+  longitude: MyString
+  title: MyString
+  description: MyString
+  start_date: MyString
+  start_time: MyString
+  length: MyString
+  rate_of_pay: MyString
+  expires: MyString
+  user_id: 

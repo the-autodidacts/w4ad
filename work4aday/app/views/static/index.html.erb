@@ -1,0 +1,23 @@
+<div  ng-app = "work4aday"
+      ng-controller="PostController as pc" >
+
+<!-- our angular form -->
+    <form ng-submit ="pc.createJobposting">
+      <input  type="text" placeholder="location"
+              ng-model=pc.newJobposting.location>/<input>
+      <input  type="text" placeholder="title"
+              ng-model=pc.newJobposting.title>/<input>
+      <input  type="text" placeholder="description"
+              ng-model=pc.newJobposting.description>/<input>
+              <input type="submit" value="submit"/>
+    </form>
+</div>
+
+<!-- angular app move me soon -->
+<script>
+var app = angular.module('work4day', []);
+
+app.controller("PostController", function ($http) {
+  this.message = "Hi there partner";
+});
+</script>

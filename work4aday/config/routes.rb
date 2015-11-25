@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :jobpostings
   resources :users
   root 'application#welcome'
   get '/session' => 'session#index'

@@ -1,6 +1,5 @@
 
-
-    <h4>WORK4ADAY</h4>
+  <div class="form-container">
     <form  action="<%= session_path %>" autocomplete="on" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
@@ -18,7 +17,6 @@
       <form  action="<%= users_path %>" autocomplete="on" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
         <br>
-        <hr>
         <label for="usernamesignup" class="form-label"><h5>FIRST NAME</h5></label>
         <input id="usernamesignup" name="user[first_name]" required="required" type="text" placeholder="John" />
         <label for="usernamesignup" class="form-label"><h5>LAST NAME</h5></label>
@@ -33,3 +31,8 @@
         <input id="signupbutton" class='welbutton' type="submit" value="Sign up"/>
       </form>
     </div>
+  </div>
+
+  <script>
+    $('#signupbutton').click(function (event) {$('#signup-form').toggleClass('hidden')})
+  </script>
