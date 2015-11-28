@@ -34,25 +34,6 @@ ActiveRecord::Schema.define(version: 20151124184853) do
 
   add_index "jobpostings", ["user_id"], name: "index_jobpostings_on_user_id", using: :btree
 
-  create_table "postings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "location"
-    t.text     "lattitude"
-    t.text     "longitude"
-    t.text     "title"
-    t.text     "description"
-    t.date     "date"
-    t.time     "time"
-    t.decimal  "length_of_job"
-    t.decimal  "rate_of_pay"
-    t.integer  "expires"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "postings", ["location"], name: "index_postings_on_location", using: :btree
-  add_index "postings", ["user_id"], name: "index_postings_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      null: false
     t.string   "last_name",       null: false
@@ -66,5 +47,4 @@ ActiveRecord::Schema.define(version: 20151124184853) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
   add_foreign_key "jobpostings", "users"
-  add_foreign_key "postings", "users"
 end

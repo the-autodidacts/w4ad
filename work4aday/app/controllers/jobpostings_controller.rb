@@ -1,27 +1,37 @@
 class JobpostingsController < ApplicationController
-  def create
-    if session[:current_user_id]
-      current_user  = User.find(session[:current_user_id])
-      jobposting   = current_user.jobpostings.new(jobposting_params)
+  before_action :require_current_user
+  def new
 
-      if jobposting.save
-        render json: jobposting
-      else
-        render json: {
-          error: true,
-          message: jobposting.errors.full_messages.to_sentence
-        }
-      end
-    else
-      redirect_to root_path
-    end
   end
 
+
+  def create
+      @jobposting   = current_user.jobpostings.new(jobposting_params)
+      if @jobposting.save
+        flash[:message] = @jobposting.title + " Created sussesully"
+        redirect_to jobpostings_path
+      else
+        flash[:message] = @jobposting.errors.full_messages.to_sentence
+        redirect_to new_jobpostings_path
+      end
+    # else
+    #   redirect_to root_path
+
+  end
+
+  def edit
+  end
+
+  def update
+  end
 
   def destroy
 
   end
 
+  def index
+    @jobpostings = Jobposting.all
+end
 
   private
   def jobposting_params

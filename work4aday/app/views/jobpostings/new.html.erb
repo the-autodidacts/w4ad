@@ -1,0 +1,22 @@
+<div  ng-controller="PostController as pc" >
+
+<!-- our angular form -->
+    <form ng-submit ="pc.createJobposting()">
+      <input  type="text" placeholder="location"
+              ng-model=pc.newJobposting.location>
+      <input  type="text" placeholder="title"
+              ng-model=pc.newJobposting.title>
+      <input  type="text" placeholder="description"
+              ng-model=pc.newJobposting.description>
+      <label id="newpostinglabel">START DATE</label>
+      <input  type="date" placeholder="start date"
+              ng-model=pc.newJobposting.start_date>
+      <label id="newpostinglabel">START TIME</label>
+      <input  type="time" placeholder="start time"
+              ng-model=pc.newJobposting.start_time>
+      <label id="newpostinglabel">SPECIFY HOURLY DAILY OR PER JOB </label>
+      <input  type="text" placeholder="this job pays"
+              ng-model=pc.newJobposting.rate_of_pay>
+      <input type="submit" value="submit"/>
+    </form>
+</div>

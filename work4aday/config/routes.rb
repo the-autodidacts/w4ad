@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
   root 'application#welcome'
   get '/static/index' => 'static#index'
-  get '/session' => 'session#index'
+  get '/loggedin' => 'application#loggedin'
   post '/users' => 'users#create'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'

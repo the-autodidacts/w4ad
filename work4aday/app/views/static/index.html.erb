@@ -1,48 +1,7 @@
-<div  ng-app = "work4aday"
-      ng-controller="PostController as pc" >
+<p>Work4aDay.com was created with the intention of solving the problem of bringing those that are in need of temporary work into contact with those that can provide it to them and vice versa. Times have changed and the reality of today’s job market and economic condition are much different than that of the past.</p>
 
-<!-- our angular form -->
-    <form ng-submit ="pc.createJobposting()">
-      <input  type="text" placeholder="location"
-              ng-model=pc.newJobposting.location>
-      <input  type="text" placeholder="title"
-              ng-model=pc.newJobposting.title>
-      <input  type="text" placeholder="description"
-              ng-model=pc.newJobposting.description>
-      <label id="newpostinglabel">START DATE</label>
-      <input  type="date" placeholder="start date"
-              ng-model=pc.newJobposting.start_date>
-      <label id="newpostinglabel">START TIME</label>
-      <input  type="time" placeholder="start time"
-              ng-model=pc.newJobposting.start_time>
-      <label id="newpostinglabel">SPECIFY HOURLY DAILY OR PER JOB </label>
-      <input  type="text" placeholder="this job pays"
-              ng-model=pc.newJobposting.rate_of_pay>
-      <input type="submit" value="submit"/>
-    </form>
-</div>
+<p>Many people have been out of work for long periods of time. Others may be in a period of transition and could benefit greatly from the opportunity to experience different types of employment while they figure out what it is that they want to focus on. There are also many people who are currently employed in full time or part time positions that may find themselves a bit short when it comes time to pay the bills. In any case, Work4aDay.com can help you save both time and money in finding opportunities for day jobs.</p>
 
-<!-- angular app move me soon -->
-<script>
-var app = angular.module('work4aday', []);
+<p>For employers, Work4aday.com provides an excellent way to fulfill short-term work needs and be exposed to many willing candidates that they may then choose to hire on a more permanent basis.  In addition, Work4aDay.com can be used by individuals who are in need of some help with simple things like shoveling their driveways or cleaning out a messy garage.</p>
 
-  app.controller("PostController", function ($http) {
-    thisController = this;
-    csrf = $('meta[name=csrf-token]').attr('content')
-
-    this.createJobposting = function () {
-      $http({
-        url: '/jobpostings',
-        method: 'POST',
-        data: {
-          jobposting: thisController.newJobposting,
-          authenticity_token: csrf
-        }
-      }).then(function (success){
-        console.log(success);
-      }, function (error){
-        console.log(error);
-      });
-    };
-});
-</script>
+<p>Work4aDay.com has always had the intention of helping people and solving an everyday problem that many people encounter.  With that in mind, we have done our best to keep costs as low as possible.  Services provided to both those in need of work and business/people in need of workers costs one dollar per day.  You will only be charged as per your own use and never without giving authorization on a case-to-case basis.</p>

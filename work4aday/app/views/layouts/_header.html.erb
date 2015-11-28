@@ -10,13 +10,18 @@
 
   <div class="container">
     <h1 class="workheader">WORK <span>4</span> A DAY</h1>
+
+    <%if current_user %>
     <div class="row">
-      <div class="one-half column label">Looking 4 Work</div>
-      <div class="one-half column label">Looking 4 Workers</div>
+      <div class="one-half column label"><a href="<%=jobpostings_path%>">Look 4 Work</a></div>
+      <div class="one-half column label"><a href="<%=new_jobposting_path%>">Look 4 Workers</a></div>
     </div>
-    <%if session[:current_user_id]%>
-    <div class="row">
-      <div class="twelve columns label"><a href="<%session_path%>">log out</a></div>
-    </div>
+    <%end%>
+    <%if current_user %>
+    <form action="<%= session_path %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Log out">
+    </form>
     <%end%>
   </div>
