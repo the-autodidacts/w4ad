@@ -1,22 +1,23 @@
 class JobpostingsController < ApplicationController
   before_action :require_current_user
-  def new
+  # skip_before_action :verify_authenticity_token
 
+  def index
+    @jobpostings = jobposting.all
   end
 
+  def new
+  end
 
   def create
       @jobposting   = current_user.jobpostings.new(jobposting_params)
       if @jobposting.save
-        flash[:message] = @jobposting.title + " Created sussesully"
-        redirect_to jobpostings_path
-      else
-        flash[:message] = @jobposting.errors.full_messages.to_sentence
-        redirect_to new_jobpostings_path
-      end
-    # else
-    #   redirect_to root_path
 
+      else
+        render json: {
+          message: "Error"
+          }
+      end
   end
 
   def edit

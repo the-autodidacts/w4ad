@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  resources :jobpostings
-  resources :users
   root 'application#welcome'
+
+  post '/users/create'
+  delete '/users/destroy', defaults: {format: :json}
+
+  resources :jobpostings, only: [:index, :create], defaults: {format: :json}
+
   get '/static/index' => 'static#index'
-  get '/loggedin' => 'application#loggedin'
-  post '/users' => 'users#create'
+
+  get '/session' => 'session#the_current_user', defaults: {format: :json}
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
 

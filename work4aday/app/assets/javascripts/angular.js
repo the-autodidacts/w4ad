@@ -5,7 +5,6 @@ var app = angular.module('work4aday', []);
     csrf = $('meta[name=csrf-token]').attr('content')
 
     this.createJobposting = function () {
-      console.log(thisController.newJobposting);
       $http({
         url: '/jobpostings',
         method: 'POST',
@@ -14,9 +13,24 @@ var app = angular.module('work4aday', []);
           authenticity_token: csrf
         }
       }).then(function (success){
+        thisController.getJobpostings();
+        // console.log(success);
+      }, function (error){
+        console.log(error);
+      });
+    };
+
+
+    this.getJobposting = function () {
+      console.log("I'm here");
+      $http({
+        url: '/jobpostings',
+        method: 'GET'
+      }).then(function (success){
         console.log(success);
       }, function (error){
         console.log(error);
       });
     };
-});
+    this.getJobposting();
+  });

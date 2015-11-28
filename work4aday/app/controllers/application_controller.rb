@@ -14,15 +14,10 @@ class ApplicationController < ActionController::Base
     render '/static/index'
   end
 
-  def loggedin
-    loggedin = !!session[:current_user_id]
-    render json: current_user
-  end
-
   def require_current_user
     redirect_to root_path unless current_user
   end
-  
+
   private
 
   def current_user
