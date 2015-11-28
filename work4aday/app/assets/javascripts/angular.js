@@ -1,5 +1,10 @@
 var app = angular.module('work4aday', []);
 
+
+ app.controller("HeaderController", function(){
+   this.foo =' bar'
+ })
+
   app.controller("PostController", function ($http) {
     thisController = this;
     csrf = $('meta[name=csrf-token]').attr('content')

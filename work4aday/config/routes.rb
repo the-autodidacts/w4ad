@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'application#welcome'
 
+  get 'application/angular'
+
   post '/users/create'
   delete '/users/destroy', defaults: {format: :json}
 
