@@ -1,12 +1,20 @@
 var app = angular.module('work4aday', []);
 
 
- app.controller("HeaderController", function(){
-   this.foo =' bar'
- })
+
+///////////////////Header Controller//////////////////////////
+  app.controller("HeaderController",['$http', function($http){
+    var controller = this;
+    $http.get('/session').success(function(data){
+      controller.current_user = data.current_user
+      console.log(controller);
+    });
+  }]);
+
+
 
   app.controller("PostController", function ($http) {
-    thisController = this;
+    var thisController = this;
     csrf = $('meta[name=csrf-token]').attr('content')
 
     this.createJobposting = function () {
